@@ -44,6 +44,12 @@ As a User;
 - I will start a workout
 - I will add a new entry into the daily calorie tracker
 
+new ones:
+As a user:
+- I will create a new account
+- I will add a new course
+- I will add and remove at least one assigment from a course
+- I will get a list of courses
 
 
 
