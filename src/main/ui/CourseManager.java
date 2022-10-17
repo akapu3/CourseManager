@@ -43,7 +43,7 @@ public class CourseManager {
         System.out.println("Log In: LI");
         System.out.println("Exit: E");
     }
-
+    
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public boolean login() {
         displayLoginMenu();
@@ -82,6 +82,14 @@ public class CourseManager {
 
 
     //Menu
+    public void displayMenu() {
+        System.out.println("Select from:");
+        System.out.println("Display List of Courses: DLC");
+        System.out.println("Add Course: AC");
+        System.out.println("Remove Course: RC");
+        System.out.println("Access Course: ACC");
+        System.out.println("Exit: E");
+    }
 
     public void menu() {
         displayMenu();
@@ -109,14 +117,7 @@ public class CourseManager {
         System.out.println("Have a good day!");
     }
 
-    public void displayMenu() {
-        System.out.println("Select from:");
-        System.out.println("Display List of Courses: DLC");
-        System.out.println("Add Course: AC");
-        System.out.println("Remove Course: RC");
-        System.out.println("Access Course: ACC");
-        System.out.println("Exit: E");
-    }
+
 
 
     //Display methods

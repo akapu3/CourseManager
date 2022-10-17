@@ -1,54 +1,27 @@
-# WellnessFirst
-WellnessFirst is a wellness program that is aims to help people improve 
-their mental and physical health. The program will be divided into 2 sections,
-mental health and physical health. Each section contains various features that
-will help the user improve their mental or physical health. This program focuses
-at students in high school and university however, it is versatile enough to be 
-used by anyone looking to improve their health.
+# CourseManager
 
-Now more than, people all around the world are not
-only accepting the importance of mental health but 
-also actively taking responsibility for their mental 
-as well as physical health. Furthermore, it is only 
-recently that people have come to understand and accept 
-the gravity of mental disorders such as anxiety, depression, 
-and OCD. However, trying to work on one’s mental and physical
-health can be overwhelming. One google search will show you 
-hundreds of websites that all tell you different ways to 
-improve your mental health. However, there are very few that 
-provide a place to implement those methods and support you as
-you embark on your self-improvement journey. As someone who 
-has struggled with anxiety in the past, not having that support 
-can make implementing those ways very difficult. This is why I’m
-interested in creating a program like this.
 
-## Feature List
+CourseManger that a course organiser that aims to help students organise 
+there courses and the related assignments. The organiser accommodates for 
+multiple users with each user creating am account using their name, a unique 
+accountID and a password. With the help of this course organiser, students can
+stay on top of their assignments as well as plan out their term effectively.
 
-__Mental Health__
-- journaling - _Has sub-parts_
-- meditation
-- habit tracker
-- Accountability setter
+Being a university students comes with its share of stress and worries. Most of them 
+are surrounded around completing assignments on time. Because of that face that students
+are taking multiple courses, and each of them have several assignments associated with them. 
+As a result, students get overwhelmed and often very anxiousness about their assignments. 
+As a student, I have experienced my share of anxiety related to assignments. By creating this
+course manager, I hope to relive some of the pressure and anxiety experienced by students.
 
-__Physical Health__
-- calorie counter
-- water intake counter
-- workout tracker - _Has sub-parts_
 
 
 ## User Stories
-
-As a User;
-- I will add a new entry to the journal
-- I will start a 5 minutes meditation session
-- I will start a workout
-- I will add a new entry into the daily calorie tracker
-
 new ones:
 As a user:
-- I will create a new account
-- I will add a new course
-- I will add and remove at least one assigment from a course
+- _I will create a new account_
+- _I will add a new course_
+- I will add and remove __at least__ one assigment from a course
 - I will get a list of courses
 
 
