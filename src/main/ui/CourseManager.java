@@ -35,6 +35,8 @@ public class CourseManager {
         login();
     }
 
+    //Login
+
     public void displayLoginMenu() {
         System.out.println("Select from: ");
         System.out.println("Create new Account: CA");
@@ -44,10 +46,9 @@ public class CourseManager {
 
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public boolean login() {
-        displayMenuCourses();
+        displayLoginMenu();
         Scanner in = new Scanner(System.in);
         String input = in.next();
-        in.close();
         if (input.equals("CA")) { //look into replacing with switch statement
             Account a10 = creatingAccountFromUserInput();
             accounts.add(a10);
@@ -78,6 +79,84 @@ public class CourseManager {
         }
         return true;
     }
+
+
+    //Menu
+
+    public void menu() {
+        displayMenu();
+        Scanner in = new Scanner(System.in);
+        String input = in.nextLine();
+        while (!input.equals("Exit")) {
+            if (input.equals("DLC")) {
+                ArrayList<Course> c1 = current.getCourses();
+                for (Course o : c1) {
+                    System.out.println(o);
+                }
+            } else if (input.equals("AC")) {
+                current.addCourse(creatingCourseFromUserInput());
+            } else if (input.equals("RC")) {
+                Course c1 = creatingCourseFromUserInput();
+                if (current.getCourses().contains(c1)) {
+                    current.dropCourse(c1);
+                } else {
+                    System.out.println("Course not found");
+                }
+            } else if (input.equals("ACC")) {
+                menuCourses();
+            }
+        }
+        System.out.println("Have a good day!");
+    }
+
+    public void displayMenu() {
+        System.out.println("Select from:");
+        System.out.println("Display List of Courses: DLC");
+        System.out.println("Add Course: AC");
+        System.out.println("Remove Course: RC");
+        System.out.println("Access Course: ACC");
+        System.out.println("Exit: E");
+    }
+
+
+    //Display methods
+
+
+
+    public void displayMenuCourses() {
+        System.out.println("Select from:");
+        System.out.println("Display list of assignments: DLA");
+        System.out.println("Add Assignment: AA");
+        System.out.println("Remove Assignment: RA");
+        System.out.println("Exit: E");
+    }
+
+    public void menuCourses() {
+        Scanner in = new Scanner(System.in);
+        String input = in.nextLine();
+        Course currentCourse = creatingCourseFromUserInput();
+        if (!current.getCourses().contains(currentCourse)) {
+            System.out.println("Invalid course");
+        } else {
+            displayMenuCourses();
+            input = in.next();
+            if (input.equals("DLA")) {
+                ArrayList<Assignment> temp = currentCourse.getAssignments();
+                for (Assignment assignment : temp) {
+                    System.out.println(assignment);
+                }
+            } else if (input.equals("AA")) {
+                currentCourse.addAssignment(creatingAssignmetFromUserInput());
+            } else if (input.equals("RM")) {
+                //Add checker for if assignment is present
+                currentCourse.removeAssignment(creatingAssignmetFromUserInput());
+            } else if (input.equals("Exit")) {
+                System.out.println("Have a good day!");
+                return;
+            }
+        }
+    }
+
 
     public Account creatingAccountFromUserInput() {
         Scanner in = new Scanner(System.in);
@@ -116,74 +195,6 @@ public class CourseManager {
         return new Assignment(name, nameOfCourse, dueDate);
     }
 
-    public void displayMenu() {
-        System.out.println("Select from:");
-        System.out.println("Display List of Courses: DLC");
-        System.out.println("Add Course: AC");
-        System.out.println("Remove Course: RC");
-        System.out.println("Access Course: ACC");
-        System.out.println("Exit: E");
-    }
-
-    public void menu() {
-        displayMenu();
-        Scanner in = new Scanner(System.in);
-        String input = in.nextLine();
-        if (input.equals("DLC")) {
-            ArrayList<Course> c1 = current.getCourses();
-            for (Course o : c1) {
-                System.out.println(o);
-            }
-        } else if (input.equals("AC")) {
-            current.addCourse(creatingCourseFromUserInput());
-        } else if (input.equals("RC")) {
-            Course c1 = creatingCourseFromUserInput();
-            if (current.getCourses().contains(c1)) {
-                current.dropCourse(c1);
-            } else {
-                System.out.println("Course not found");
-            }
-        } else if (input.equals("ACC")) {
-            menuCourses();
-        } else if (input.equals("Exit")) {
-            System.out.println("Have a good day!");
-            return;
-        }
-    }
-
-    public void displayMenuCourses() {
-        System.out.println("Select from:");
-        System.out.println("Display list of assignments: DLA");
-        System.out.println("Add Assignment: AA");
-        System.out.println("Remove Assignment: RA");
-        System.out.println("Exit: E");
-    }
-
-    public void menuCourses() {
-        Scanner in = new Scanner(System.in);
-        String input = in.nextLine();
-        Course currentCourse = creatingCourseFromUserInput();
-        if (!current.getCourses().contains(currentCourse)) {
-            System.out.println("Invalid course");
-        } else {
-            displayMenuCourses();
-            input = in.next();
-            if (input.equals("DLA")) {
-                ArrayList<Assignment> temp = currentCourse.getAssignments();
-                for (Assignment assignment : temp) {
-                    System.out.println(assignment);
-                }
-            } else if (input.equals("AA")) {
-                currentCourse.addAssignment(creatingAssignmetFromUserInput());
-            } else if (input.equals("RM")) {
-                //Add checker for if assignment is present
-                currentCourse.removeAssignment(creatingAssignmetFromUserInput());
-            } else if (input.equals("Exit")) {
-                System.out.println("Have a good day!");
-                return;
-            }
-        }
-    }
 }
 
 
