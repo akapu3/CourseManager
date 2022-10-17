@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CourseTest {
     Course course;
@@ -59,4 +58,13 @@ public class CourseTest {
         assertTrue(checker);
     }
 
+    @Test
+    public void testEqualsCourses(){
+        Course c1 = new Course("CPSC210", "InPerson", "Bob");
+        assertTrue(course.equalsCourses(c1));
+    }
+    public void testEqualsCoursesFalse(){
+        Course c1 = new Course("CPSC220", "Online", "Sam");
+        assertFalse(course.equalsCourses(c1));
+    }
 }
