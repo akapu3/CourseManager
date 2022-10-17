@@ -21,8 +21,8 @@ new ones:
 As a user:
 - _I will create a new account_
 - _I will add a new course_
-- I will add and remove __at least__ one assigment from a course
 - I will get a list of courses
+- I will add and remove __at least__ one assigment from a course
 
 
 
