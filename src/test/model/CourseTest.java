@@ -17,7 +17,7 @@ public class CourseTest {
 
     @Test
     public void testGetName(){
-        assertEquals("CPSC210",course.name);
+        assertEquals("CPSC210",course.getName());
     }
     @Test
     public void testGetProfessorName(){
@@ -25,7 +25,7 @@ public class CourseTest {
     }
     @Test
     public void testGetLectureType(){
-        assertEquals("InPerson",course.lectureType);
+        assertEquals("InPerson",course.getLectureType());
     }
     @Test
     public void testAddAssignment(){
