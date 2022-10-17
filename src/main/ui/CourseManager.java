@@ -23,6 +23,7 @@ public class CourseManager {
     Account a1 = new Account("Jake", "12345", "Hello");
     Account a2 = new Account("Gloria", "2245", "ModernFamily");
     Account a3 = new Account("Harry", "6789", "HarryPotter");
+
     public void addPreExistingCourses() {
         accounts.add(a1);
         accounts.add(a2);
@@ -34,37 +35,26 @@ public class CourseManager {
         login();
     }
 
-    public boolean login() {
+    public void displayLoginMenu() {
         System.out.println("Select from: ");
         System.out.println("Create new Account: CA");
         System.out.println("Log In: LI");
         System.out.println("Exit: E");
+    }
 
+    public boolean login() {
+        displayMenuCourses();
         Scanner in = new Scanner(System.in);
         String input = in.next();
+        in.close();
         if (input.equals("CA")) { //look into replacing with switch statement
-            System.out.print("Enter name: ");
-            String name = in.next();
-            System.out.print("Enter AccountID: ");
-            String accountID = in.next();
-            System.out.print("Enter password: ");
-            String password = in.next();
-            in.close();
-            Account a10 = new Account(name, accountID, password);
+            Account a10 = creatingAccountFromUserInput();
             accounts.add(a10);
             this.current = a10;
             menu();
             return true;
         } else if (input.equals("LI")) {
-            System.out.print("Enter name: ");
-            String name = in.next();
-            System.out.print("Enter AccountID: ");
-            String accountID = in.next();
-            System.out.print("Enter password: ");
-            String password = in.next();
-
-            Account a1 = new Account(name, accountID, password);
-            in.close();
+            Account a1 = creatingAccountFromUserInput();
             boolean checker = false;
             for (int i = 0; i < accounts.size();i++) {
                 if (accounts.get(i).equalsAccount(a1)) {
@@ -78,7 +68,6 @@ public class CourseManager {
                 System.out.println("Invalid details");
                 return false;
             }
-
         } else if (input.equals("E")) {
             System.out.println("Have a good day!");
             return true;
@@ -89,10 +78,19 @@ public class CourseManager {
         return true;
     }
 
+    public Account creatingAccountFromUserInput() {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter name: ");
+        String name = in.next();
+        System.out.print("Enter AccountID: ");
+        String accountID = in.next();
+        System.out.print("Enter password: ");
+        String password = in.next();
+        return new Account(name, accountID, password);
+    }
 
     public Course creatingCourseFromUserInput() {
         Scanner in = new Scanner(System.in);
-        String input = in.nextLine();
         System.out.print("Enter name of course: ");
         String name = in.next();
         System.out.print("Enter type of lecture: ");
@@ -177,7 +175,7 @@ public class CourseManager {
             } else if (input.equals("AA")) {
                 currentCourse.addAssignment(creatingAssignmetFromUserInput());
             } else if (input.equals("RM")) {
-                                                                                        //Add checker for if assignment is present
+                //Add checker for if assignment is present
                 currentCourse.removeAssignment(creatingAssignmetFromUserInput());
             } else if (input.equals("Exit")) {
                 System.out.println("Have a good day!");
