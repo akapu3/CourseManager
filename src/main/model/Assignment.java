@@ -23,6 +23,9 @@ public class Assignment {
         return name;
     }
 
+    //Requires: an integer
+    //Modifies: this
+    //Effect: changes the due date to the given due date;
     public void changeDueDate(int dueDate) {
         this.dueDate = dueDate;
     }

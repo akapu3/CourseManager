@@ -16,22 +16,31 @@ public class Account {
         courses = new ArrayList<Course>();
     }
 
+    //Effect: returns the list of course associated with this account
     public ArrayList<Course> getCourses() {
         return courses;
     }
 
+    //Modifies: this
+    //Effect: Adds a course to the courses array and returns true if it is able to do it successfully
     public boolean addCourse(Course course) {
         return (courses.add(course));
     }
 
+    //Requires: Course
+    //Modfies: this
+    //Effect: removes the given course from the courses arraylist
     public boolean dropCourse(Course course) {
         return (courses.remove(course));
     }
 
+    //Effect: returns the name of the account
     public String getName() {
         return this.name;
     }
 
+    //Requires: A string
+    //Effect: returns the password id the correct accountID is inputed
     public String forgotPassword(String accountID) {
         if (this.accountID == accountID) {
             return "Your Password is: " + this.password;
@@ -40,6 +49,8 @@ public class Account {
         }
     }
 
+    //Requires: An account
+    //Effect: checks if a given account is equal to this account
     public boolean equalsAccount(Account a) {
         String name = a.name;
         String accountID = a.accountID;

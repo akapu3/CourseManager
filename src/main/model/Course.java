@@ -31,10 +31,16 @@ public class Course {
         return assignments;
     }
 
+    //Requires: A value assignment object
+    //Modifes: this
+    //Effect: adds an assignment to the assignments arraylist
     public boolean addAssignment(Assignment a1) {
         return (assignments.add(a1));
     }
 
+    //Requires: A value assignment object
+    //Modifes: this
+    //Effect: removes an assignment to the assignments arraylist
     public boolean removeAssignment(Assignment assignment) {
         return (assignments.remove(assignment));
     }
@@ -48,6 +54,17 @@ public class Course {
 //        return null;
 //    }
 //
+
+    public boolean equalsCourses(Course c1) {
+        if (c1.getName().equals(getName())) {
+            if (c1.getProfessorName().equals(getProfessorName())) {
+                if (c1.getLectureType().equals(getLectureType())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
 
 }

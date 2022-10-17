@@ -30,58 +30,55 @@ public class CourseManager {
         accounts.add(a3);
     }
 
-
+    //Effect: runs the login page
     public void runApp() {
         login();
     }
 
     //Login
-
+    //Effect: displays the login menu
     public void displayLoginMenu() {
         System.out.println("Select from: ");
         System.out.println("Create new Account: CA");
         System.out.println("Log In: LI");
         System.out.println("Exit: E");
     }
-    
+
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
-    public boolean login() {
-        displayLoginMenu();
+    public void login() {
         Scanner in = new Scanner(System.in);
-        String input = in.next();
-        if (input.equals("CA")) { //look into replacing with switch statement
-            Account a10 = creatingAccountFromUserInput();
-            accounts.add(a10);
-            this.current = a10;
-            menu();
-            return true;
-        } else if (input.equals("LI")) {
-            Account a1 = creatingAccountFromUserInput();
-            boolean checker = false;
-            for (int i = 0; i < accounts.size();i++) {
-                if (accounts.get(i).equalsAccount(a1)) {
-                    checker = true;
-                }
-            }
-            if (checker) {
-                this.current = a1;
+        String input;
+        do {
+            displayLoginMenu();
+            input = in.next();
+            if (input.equals("CA")) { //look into replacing with switch statement
+                Account a10 = creatingAccountFromUserInput();
+                accounts.add(a10);
+                this.current = a10;
                 menu();
+            } else if (input.equals("LI")) {
+                Account a1 = creatingAccountFromUserInput();
+                boolean checker = false;
+                for (Account account : accounts) {
+                    if (account.equalsAccount(a1)) {
+                        checker = true;
+                    }
+                }
+                if (checker) {
+                    this.current = a1;
+                    menu();
+                } else {
+                    System.out.println("Invalid details");
+                }
             } else {
-                System.out.println("Invalid details");
-                return false;
+                System.out.println("Invalid Input");
             }
-        } else if (input.equals("E")) {
-            System.out.println("Have a good day!");
-            return true;
-        } else {
-            System.out.println("Invalid Input");
-            return false;
-        }
-        return true;
+        } while (!input.equals("E"));
     }
 
 
     //Menu
+    //Effect: displays courses menu
     public void displayMenu() {
         System.out.println("Select from:");
         System.out.println("Display List of Courses: DLC");
@@ -91,39 +88,51 @@ public class CourseManager {
         System.out.println("Exit: E");
     }
 
+    //Requires: An instance of Course
+    //Effect: compares 2 courses and returns true if they're the same
+    public boolean courseCompare(Course c1) {
+        ArrayList<Course> temp = current.getCourses();
+        for (Course course : temp) {
+            if (course.equalsCourses(c1)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //Modifies: this
+    //Effect: Allows users to modify the courses associated with their account and access their assignments
+    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public void menu() {
-        displayMenu();
         Scanner in = new Scanner(System.in);
-        String input = in.nextLine();
-        while (!input.equals("Exit")) {
+        String input;
+        do {
+            displayMenu();
+            input = in.next();
             if (input.equals("DLC")) {
-                ArrayList<Course> c1 = current.getCourses();
-                for (Course o : c1) {
-                    System.out.println(o);
+                System.out.println("You have these courses: ");
+                for (Course o : current.getCourses()) {
+                    System.out.println(o.getName());
                 }
             } else if (input.equals("AC")) {
                 current.addCourse(creatingCourseFromUserInput());
+                System.out.println("Course Added!");
             } else if (input.equals("RC")) {
                 Course c1 = creatingCourseFromUserInput();
-                if (current.getCourses().contains(c1)) {
+                boolean checker = courseCompare(c1);
+                if (checker) {
                     current.dropCourse(c1);
+                    System.out.println("Course Dropped!");
                 } else {
                     System.out.println("Course not found");
                 }
             } else if (input.equals("ACC")) {
                 menuCourses();
             }
-        }
-        System.out.println("Have a good day!");
+        } while (!input.equals("E"));
     }
 
-
-
-
-    //Display methods
-
-
-
+    //Effect: Displays the options for modifying courses
     public void displayMenuCourses() {
         System.out.println("Select from:");
         System.out.println("Display list of assignments: DLA");
@@ -132,33 +141,43 @@ public class CourseManager {
         System.out.println("Exit: E");
     }
 
+    //Modifies: this
+    //Effect: allows user to modify assignments for a given course
+    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public void menuCourses() {
         Scanner in = new Scanner(System.in);
-        String input = in.nextLine();
+        System.out.println("Enter Course Details:");
         Course currentCourse = creatingCourseFromUserInput();
-        if (!current.getCourses().contains(currentCourse)) {
+        boolean checker = courseCompare(currentCourse);
+        if (!checker) {
             System.out.println("Invalid course");
         } else {
-            displayMenuCourses();
-            input = in.next();
-            if (input.equals("DLA")) {
-                ArrayList<Assignment> temp = currentCourse.getAssignments();
-                for (Assignment assignment : temp) {
-                    System.out.println(assignment);
+            String input;
+            do {
+                displayMenuCourses();
+                input = in.next();
+                if (input.equals("DLA")) {
+                    ArrayList<Assignment> temp = currentCourse.getAssignments();
+                    for (Assignment assignment : temp) {
+                        System.out.println(assignment.getName());
+                    }
+                } else if (input.equals("AA")) {
+                    currentCourse.addAssignment(creatingAssignmentFromUserInput());
+                    System.out.println("Assignment Added!");
+                    System.out.println("");
+
+                } else if (input.equals("RA")) {
+                    //Add checker for if assignment is present
+                    currentCourse.removeAssignment(creatingAssignmentFromUserInput());
+                    System.out.println("Assignment Removed!");
+                    System.out.println("");
                 }
-            } else if (input.equals("AA")) {
-                currentCourse.addAssignment(creatingAssignmetFromUserInput());
-            } else if (input.equals("RM")) {
-                //Add checker for if assignment is present
-                currentCourse.removeAssignment(creatingAssignmetFromUserInput());
-            } else if (input.equals("Exit")) {
-                System.out.println("Have a good day!");
-                return;
-            }
+            } while (!input.equals("E"));
         }
     }
 
 
+    //Effect:Gets input from user for creating account and creating an account object
     public Account creatingAccountFromUserInput() {
         Scanner in = new Scanner(System.in);
         System.out.print("Enter name: ");
@@ -170,6 +189,7 @@ public class CourseManager {
         return new Account(name, accountID, password);
     }
 
+    //Effect:Gets input from user for creating a new course and returns a course object
     public Course creatingCourseFromUserInput() {
         Scanner in = new Scanner(System.in);
         System.out.print("Enter name of course: ");
@@ -179,20 +199,18 @@ public class CourseManager {
         System.out.print("Enter Professor's name: ");
         String professorName = in.next();
         Course c1 = new Course(name, lectureType, professorName);
-        in.close();
         return c1;
     }
 
-    public Assignment creatingAssignmetFromUserInput() {
+    //Effect:Gets input from user for creating a new assignment course and returns an assignment object
+    public Assignment creatingAssignmentFromUserInput() {
         Scanner in = new Scanner(System.in);
-        String input = in.nextLine();
         System.out.print("Enter name of Assignment: ");
         String name = in.next();
         System.out.print("Enter name of Course: ");
         String nameOfCourse = in.next();
         System.out.print("Enter Due Date: ");
         int dueDate = in.nextInt();
-        in.close();
         return new Assignment(name, nameOfCourse, dueDate);
     }
 
