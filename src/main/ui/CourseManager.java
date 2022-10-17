@@ -42,11 +42,8 @@ public class CourseManager {
         System.out.println("Exit: E");
     }
 
-    public boolean login() {
-        displayMenuCourses();
-        Scanner in = new Scanner(System.in);
-        String input = in.next();
-        in.close();
+    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
+    public boolean checkingLoginDetails(String input) {
         if (input.equals("CA")) { //look into replacing with switch statement
             Account a10 = creatingAccountFromUserInput();
             accounts.add(a10);
@@ -65,17 +62,28 @@ public class CourseManager {
                 this.current = a1;
                 menu();
             } else {
-                System.out.println("Invalid details");
-                return false;
+                return printInvalidDetails();
             }
         } else if (input.equals("E")) {
             System.out.println("Have a good day!");
             return true;
         } else {
-            System.out.println("Invalid Input");
-            return false;
+            return printInvalidDetails();
         }
         return true;
+    }
+
+    public boolean  printInvalidDetails() {
+        System.out.println("Invalid Input");
+        return false;
+    }
+
+    public void login() {
+        displayMenuCourses();
+        Scanner in = new Scanner(System.in);
+        String input = in.next();
+        in.close();
+        checkingLoginDetails(input);
     }
 
     public Account creatingAccountFromUserInput() {
@@ -144,7 +152,7 @@ public class CourseManager {
             }
         } else if (input.equals("ACC")) {
             menuCourses();
-        } else if (input.equals("Exit")) {
+        } else if (input.equals("E")) {
             System.out.println("Have a good day!");
             return;
         }
