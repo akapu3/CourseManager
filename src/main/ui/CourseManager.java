@@ -42,6 +42,7 @@ public class CourseManager {
         System.out.println("Exit: E");
     }
 
+    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public boolean login() {
         displayMenuCourses();
         Scanner in = new Scanner(System.in);
