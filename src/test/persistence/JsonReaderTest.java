@@ -16,17 +16,15 @@ public class JsonReaderTest {
     //test failing in each case <- catch the nullpointerexception or the name not found exception(check official name)
 
     @Test
-    void testWritingInvalidFile() {
+    void testReaderNonExistentFile() {
+        JsonReader reader = new JsonReader("./data/noSuchFile.json");
         try {
-            Account ac = new Account("Test1", "t1", "tt");
-            JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.json");
-            writer.open();
-            fail("IOException was expected");
+            Account wr = reader.read();
+            fail("IOException expected");
         } catch (IOException e) {
             // pass
         }
     }
-
     @Test
     void testReadingEmptyAccount() {
         try {
@@ -44,6 +42,7 @@ public class JsonReaderTest {
     @Test
     public void testReadingGeneralAccount(){
         try{
+
             Account ac = new Account("test1","t1","T");
             Course c = new Course("CPSC210","Online","Joe");
             Assignment a = new Assignment("A1","CPSC210",10122022);
