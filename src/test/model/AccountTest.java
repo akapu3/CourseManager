@@ -24,12 +24,6 @@ public class AccountTest {
      }
 
      @Test
-     public void testAddExistingCourse(){
-        a1.addCourse(new Course("CPSC210", "InPerson", "Bob"));
-        assertFalse(a1.addCourse(new Course("CPSC210", "InPerson", "Bob")));
-
-     }
-     @Test
     public void testDropCourse() {
         Course test = new Course("CPSC210", "InPerson", "Bob");
 
@@ -52,20 +46,20 @@ public class AccountTest {
     @Test
     public void testEqualsAccount(){
         Account test = new Account("Jake", "12345", "Hello");
-        assertTrue(a1.equalsAccount(test));
+        assertTrue(a1.equals(test));
     }
 
     @Test
     public void testEquals(){
         Account test = new Account("Jake", "12345", "Hello");
-        assertTrue(a1.equalsAccount(test));
+        assertTrue(a1.equals(test));
     }
     @Test
     public void testEqualAccountFalse(){
         Account test = new Account("Bob", "12345", "Hello");
-        assertFalse(a1.equalsAccount(test));
+        assertFalse(a1.equals(test));
         test = new Account("Bob", "1111", "Hello");
-        assertFalse(a1.equalsAccount(test));
+        assertFalse(a1.equals(test));
 
     }
 

@@ -27,12 +27,6 @@ public class Account {
     //Modifies: this
     //Effect: Adds a course to the courses array and returns true if it is able to do it successfully
     public boolean addCourse(Course course) {
-        for (int i = 0; i < courses.size();i++) {
-            if (courses.equals(course)) {
-                System.out.println("Course already exists");
-                return false;
-            }
-        }
         courses.add(course);
         return true;
     }
@@ -63,7 +57,7 @@ public class Account {
 
     //Requires: An account
     //Effect: checks if a given account is equal to this account
-    public boolean equalsAccount(Account a) {
+    public boolean equals(Account a) {
         String name = a.name;
         String accountID = a.accountID;
         String password = a.password;

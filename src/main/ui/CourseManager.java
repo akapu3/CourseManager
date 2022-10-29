@@ -69,7 +69,7 @@ public class CourseManager {
             } else if (input.equals("LI")) {
                 Account a1 = creatingAccountFromUserInput();
                 boolean checker = false;
-                if (current.equalsAccount(a1)) {
+                if (current.equals(a1)) {
                     menu();
                 } else {
                     System.out.println("Invalid details");

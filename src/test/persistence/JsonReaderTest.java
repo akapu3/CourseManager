@@ -32,7 +32,7 @@ public class JsonReaderTest {
 
             JsonReader reader = new JsonReader("./data/testReaderEmptyAccount.json");
             Account ac2 = reader.read();
-            assertTrue(ac2.equalsAccount(ac));
+            assertTrue(ac2.equals(ac));
             assertEquals(0, ac2.getCourses().size());
         } catch (IOException e) {
             fail("Exception should not have been thrown");
@@ -51,7 +51,7 @@ public class JsonReaderTest {
 
             JsonReader reader = new JsonReader("./data/testReadingGeneralAccount.json");
             Account ac2 = reader.read();
-            assertTrue(ac2.equalsAccount(ac));
+            assertTrue(ac2.equals(ac));
             assertEquals(1,ac2.getCourses().size());
             assertEquals(1,ac2.getCourses().get(0).getAssignments().size());
             assertTrue(ac2.getCourses().get(0).equals(c));
