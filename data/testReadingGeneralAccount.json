@@ -1,0 +1,15 @@
+{
+    "courses: ": [{
+        "assignments: ": [{
+            "duedate: ": 10122022,
+            "course: ": "CPSC210",
+            "name : ": "A1"
+        }],
+        "lectureType: ": "Online",
+        "professorName: ": "Joe",
+        "name: ": "CPSC210"
+    }],
+    "accountID: ": "t1",
+    "password: ": "T",
+    "name: ": "test1"
+}
