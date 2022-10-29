@@ -62,6 +62,11 @@ public class CourseTest {
     public void testEqualsCourses(){
         Course c1 = new Course("CPSC210", "InPerson", "Bob");
         assertTrue(course.equals(c1));
+        c1 = new Course("CPSC210", "Online", "Bob");
+        assertFalse(course.equals(c1));
+        c1 = new Course("CPSC210", "InPerson", "Jack");
+        assertFalse(course.equals(c1));
+
     }
     public void testEqualsCoursesFalse(){
         Course c1 = new Course("CPSC220", "Online", "Sam");

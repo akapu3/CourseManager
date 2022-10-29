@@ -43,16 +43,15 @@ public class AccountTest {
         assertEquals("AccountID not found, try again",a1.forgotPassword("11232"));
     }
 
-    @Test
-    public void testEqualsAccount(){
-        Account test = new Account("Jake", "12345", "Hello");
-        assertTrue(a1.equals(test));
-    }
 
     @Test
     public void testEquals(){
         Account test = new Account("Jake", "12345", "Hello");
         assertTrue(a1.equals(test));
+        test = new Account("Jake", "11111", "Hello");
+        assertFalse(a1.equals(test));
+        test = new Account("Jake", "12345", "H");
+        assertFalse(a1.equals(test));
     }
     @Test
     public void testEqualAccountFalse(){
