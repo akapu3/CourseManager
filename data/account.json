@@ -1,9 +1,9 @@
 {
     "courses: ": [{
+        "assignments: ": [],
         "lectureType: ": "Z",
         "professorName: ": "D",
-        "name: ": "A",
-        "assignments: ": []
+        "name: ": "A"
     }],
     "accountID: ": "O",
     "password: ": "L",

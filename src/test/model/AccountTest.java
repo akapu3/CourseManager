@@ -57,7 +57,7 @@ public class AccountTest {
     public void testEqualAccountFalse(){
         Account test = new Account("Bob", "12345", "Hello");
         assertFalse(a1.equals(test));
-        test = new Account("Bob", "1111", "Hello");
+        test = new Account("Tom", "1111", "Hello");
         assertFalse(a1.equals(test));
 
     }

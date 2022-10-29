@@ -42,10 +42,12 @@ public class AssignmentTest {
     public void testEquals(){
         Assignment a2 = new Assignment("Phase0","CPSC210",20221016);
         Assignment a3 = new Assignment("Phase1","CPSC210",20221016);
-        Assignment a4 = new Assignment("Phase1","CPSC220",20221016);
+        Assignment a4 = new Assignment("Phase0","CPSC220",20221016);
+        Assignment a5 = new Assignment("Phase0","CPSC210",20221017);
 
         assertTrue(a1.equals(a2));
         assertFalse(a1.equals(a3));
         assertFalse(a1.equals(a4));
+        assertFalse(a1.equals(a5));
     }
 }
