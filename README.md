@@ -17,13 +17,9 @@ course manager, I hope to relive some of the pressure and anxiety experienced by
 
 
 ## User Stories
-new ones:
 As a user:
-- _I will create a new account have my details saved_
-- _I will add a new course_
-- I will get a list of courses
-- I will add and remove __at least__ one assigment from a course
-- As a user I want to Log into a pre-existing account 
+- Log into app
+- Save courses and assignments
 
 
 
