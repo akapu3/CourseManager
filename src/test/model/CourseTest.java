@@ -61,10 +61,10 @@ public class CourseTest {
     @Test
     public void testEqualsCourses(){
         Course c1 = new Course("CPSC210", "InPerson", "Bob");
-        assertTrue(course.equalsCourses(c1));
+        assertTrue(course.equals(c1));
     }
     public void testEqualsCoursesFalse(){
         Course c1 = new Course("CPSC220", "Online", "Sam");
-        assertFalse(course.equalsCourses(c1));
+        assertFalse(course.equals(c1));
     }
 }

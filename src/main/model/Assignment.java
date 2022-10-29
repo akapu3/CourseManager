@@ -1,5 +1,9 @@
 package model;
 
+import org.json.JSONArray;
+
+import org.json.JSONObject;
+
 public class Assignment {
     private String course;
     private int dueDate;
@@ -29,4 +33,25 @@ public class Assignment {
     public void changeDueDate(int dueDate) {
         this.dueDate = dueDate;
     }
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("course: ", this.course);
+        json.put("name : ", this.name);
+        json.put("duedate: ", this.dueDate);
+
+        return json;
+    }
+
+    @Override
+    public boolean equals(Object assignment) {
+        Assignment a1 = (Assignment) assignment;
+        if (a1.getName().equals(this.getName())) {
+            if (a1.getCourse().equals(this.getCourse())) {
+                return (a1.getDueDate() == this.getDueDate());
+            }
+        }
+        return false;
+    }
+
 }

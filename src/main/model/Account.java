@@ -1,5 +1,8 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class Account {
@@ -24,13 +27,22 @@ public class Account {
     //Modifies: this
     //Effect: Adds a course to the courses array and returns true if it is able to do it successfully
     public boolean addCourse(Course course) {
-        return (courses.add(course));
+        for (int i = 0; i < courses.size();i++) {
+            if (courses.equals(course)) {
+                System.out.println("Course already exists");
+                return false;
+            }
+        }
+        courses.add(course);
+        return true;
     }
 
     //Requires: Course
     //Modfies: this
     //Effect: removes the given course from the courses arraylist
     public boolean dropCourse(Course course) {
+
+        System.out.println(course);
         return (courses.remove(course));
     }
 
@@ -63,6 +75,25 @@ public class Account {
             }
         }
         return false;
+    }
+
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+
+        json.put("name: ", this.name);
+        json.put("accountID: ", this.accountID);
+        json.put("password: ", this.password);
+        json.put("courses: ", coursesToJson());
+
+        return json;
+    }
+
+    public JSONArray coursesToJson() {
+        JSONArray json = new JSONArray();
+        for (Course x : this.courses) {
+            json.put(x.toJson());
+        }
+        return json;
     }
 
 }

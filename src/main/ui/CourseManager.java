@@ -3,7 +3,11 @@ package ui;
 import model.Account;
 import model.Assignment;
 import model.Course;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,11 +15,17 @@ public class CourseManager {
 
     ArrayList<Account> accounts;
     Account current;
+    private static final String JSON_STORE = "./data/account.json";
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
 
     public CourseManager() {
         accounts = new ArrayList<>();
-        addPreExistingCourses();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
+        loadAccount();
+        addPreExistingCourses(); //only for test purposes
         runApp();
     }
 
@@ -59,17 +69,22 @@ public class CourseManager {
             } else if (input.equals("LI")) {
                 Account a1 = creatingAccountFromUserInput();
                 boolean checker = false;
-                for (Account account : accounts) {
-                    if (account.equalsAccount(a1)) {
-                        checker = true;
-                    }
-                }
-                if (checker) {
-                    this.current = a1;
+                if (current.equalsAccount(a1)) {
                     menu();
                 } else {
                     System.out.println("Invalid details");
                 }
+//                for (Account account : accounts) {
+//                    if (account.equalsAccount(a1)) {
+//                        checker = true;
+//                    }
+//                }
+//                if (checker) {
+//                    this.current = a1;
+//                    menu();
+//                } else {
+//                    System.out.println("Invalid details");
+//                }
             } else {
                 System.out.println("Invalid Input");
             }
@@ -85,6 +100,7 @@ public class CourseManager {
         System.out.println("Add Course: AC");
         System.out.println("Remove Course: RC");
         System.out.println("Access Course: ACC");
+        System.out.println("Save: S");
         System.out.println("Exit: E");
     }
 
@@ -93,7 +109,7 @@ public class CourseManager {
     public boolean courseCompare(Course c1) {
         ArrayList<Course> temp = current.getCourses();
         for (Course course : temp) {
-            if (course.equalsCourses(c1)) {
+            if (course.equals(c1)) {
                 return true;
             }
         }
@@ -114,6 +130,7 @@ public class CourseManager {
                 for (Course o : current.getCourses()) {
                     System.out.println(o.getName());
                 }
+                System.out.println("_________");
             } else if (input.equals("AC")) {
                 current.addCourse(creatingCourseFromUserInput());
                 System.out.println("Course Added!");
@@ -128,6 +145,8 @@ public class CourseManager {
                 }
             } else if (input.equals("ACC")) {
                 menuCourses();
+            } else if (input.equals("S")) {
+                saveAccount();
             }
         } while (!input.equals("E"));
     }
@@ -212,6 +231,26 @@ public class CourseManager {
         System.out.print("Enter Due Date: ");
         int dueDate = in.nextInt();
         return new Assignment(name, nameOfCourse, dueDate);
+    }
+
+    private void saveAccount() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(current);
+            jsonWriter.close();
+            System.out.println("Saved " + current.getName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    private void loadAccount() {
+        try {
+            current = jsonReader.read();
+            System.out.println("Loaded");
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
 }

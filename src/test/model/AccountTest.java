@@ -25,6 +25,7 @@ public class AccountTest {
      @Test
     public void testDropCourse() {
         Course test = new Course("CPSC210", "InPerson", "Bob");
+
          a1.addCourse(test);
          assertTrue(a1.dropCourse(test));
      }
