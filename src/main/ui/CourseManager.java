@@ -1,5 +1,7 @@
 package ui;
 
+import gui.LoginPage;
+import gui.MainPage;
 import model.Account;
 import model.Assignment;
 import model.Course;
@@ -18,13 +20,15 @@ public class CourseManager {
     private static final String JSON_STORE = "./data/account.json";
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
+    LoginPage loginPage;
+    MainPage mainPage;
 
 
     public CourseManager() {
         accounts = new ArrayList<>();
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
-        loadAccount();
+        // loadAccount();
         addPreExistingCourses(); //only for test purposes
         runApp();
     }
@@ -56,6 +60,18 @@ public class CourseManager {
 
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public void login() {
+       // loginPage = new LoginPage();
+
+        //when the create account button will be pressed, a boolean var will be set to true and the input from the user
+        //will be used to create the new account
+//        Account a10 = new Account(loginPage.getName(), loginPage.getUsername(), loginPage.getPassword());
+//        if (current.equals(a10)) {
+//           //run the gui for the main page
+//            mainPage =  new MainPage();
+//        } else {
+//            //run the gui for the fail login
+//            //display picture and then when the try again button is clicked, run the login gui again
+//        }
         Scanner in = new Scanner(System.in);
         String input;
         do {
@@ -252,6 +268,8 @@ public class CourseManager {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
+
+
 
 }
 

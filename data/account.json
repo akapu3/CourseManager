@@ -1,11 +1,19 @@
 {
-    "courses: ": [{
-        "assignments: ": [],
-        "lectureType: ": "Z",
-        "professorName: ": "D",
-        "name: ": "A"
-    }],
-    "accountID: ": "O",
-    "password: ": "L",
-    "name: ": "C"
+    "courses: ": [
+        {
+            "assignments: ": [],
+            "lectureType: ": "B",
+            "professorName: ": "D",
+            "name: ": "A"
+        },
+        {
+            "assignments: ": [],
+            "lectureType: ": "I",
+            "professorName: ": "J",
+            "name: ": "H"
+        }
+    ],
+    "accountID: ": "6789",
+    "password: ": "Potter",
+    "name: ": "Harry"
 }
