@@ -14,12 +14,6 @@ public class DisplayCourse implements ActionListener {
     JPanel panel;
     JButton back;
 
-    public static void main(String[] args) {
-        Account a1 = new Account("Jake", "12345", "Hello");
-        a1.addCourse(new Course("C","O","L"));
-        a1.addCourse(new Course("A","B","C"));
-        new DisplayCourse(a1);
-    }
 
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public DisplayCourse(Account current) {
