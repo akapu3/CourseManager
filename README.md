@@ -22,4 +22,21 @@ As a user:
 - Save courses and assignments
 
 
-
+P3 GUI instructions:
+1. enter your details into the given spaces, as you don't have an account already, you will click in the create account
+button. <- remember these details as they important later on
+2. You will be presented with the main screen of the program, you will first add a course. To do so, you will click on 
+the add course button
+3. You will be presented with the add course screen where you will enter the details of your course and then click submit
+4. You will now be returned to the main screen. You can click on the display courses button at any time to view the
+course you have
+5. We can now add courses, or we can now test the remove button
+6. To test the remove button, we will first click on it which will prompt you with the remove course screen.
+7. On remove screen, you will now add the detail of the course you want to remove and then click submit
+8. You will be taken back to the main page. Click on the Display courses to ensure that the course is indeed removed
+9. Lastly, we will now save our courses.
+10. We will now close the app and restart it. Now will enter some random details in the text boxes and click login.
+11. This will prompt us with a new page with an image and try again button, which when clicked will lead us to the login 
+page again.
+12. We will now correctly enter all the details and click login. This will take us to the main page where we can check
+all the courses are saved using the display courses button.
