@@ -20,6 +20,9 @@ public class RemoveCourse implements ActionListener {
 
     Account current;
 
+    //Requires: Account object
+    //Modifies: current
+    //Effect: Displays remove course window
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public RemoveCourse(Account current) {
         this.current = current;
@@ -65,6 +68,9 @@ public class RemoveCourse implements ActionListener {
     }
 
 
+    //Requires: ActionEvent object
+    //Modifies: current
+    //Effect: course is removed from current and displays main page
     @Override
     public void actionPerformed(ActionEvent e) {
         current.dropCourse(new Course(courseNameTextField.getText(),

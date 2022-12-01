@@ -16,6 +16,7 @@ import persistence.JsonWriter;
 import model.Account;
 
 
+
 @SuppressWarnings({"checkstyle:TypeName", "checkstyle:SuppressWarnings"})
 public class LoginPage extends Canvas implements ActionListener {
 
@@ -42,7 +43,7 @@ public class LoginPage extends Canvas implements ActionListener {
     String password;
     String name;
 
-
+    //Effect: Displays login page
     @SuppressWarnings("checkstyle:MethodLength")
     public LoginPage() throws IOException {
         frame = new JFrame();
@@ -99,7 +100,8 @@ public class LoginPage extends Canvas implements ActionListener {
     }
 
 
-
+    //Requires: ActionEvent object
+    //Effect: displays main page if login info is correct otherwise displays image
     @Override
     public void actionPerformed(ActionEvent e) {
         frame.setVisible(false);
@@ -119,6 +121,9 @@ public class LoginPage extends Canvas implements ActionListener {
         }
 
     }
+
+    //Modifies: current
+    //Effect: loads the data from json file into current
 
     private void loadAccount() {
         try {

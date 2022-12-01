@@ -38,6 +38,9 @@ public class MainPage {
         panel.setLayout(null);
     }
 
+    //Requires: account object
+    //Modifies: current
+    //Effect: Displays main page
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public MainPage(Account current) {
         this.current =  current;
@@ -90,6 +93,7 @@ public class MainPage {
         frame.setVisible(true);
     }
 
+    //Effect: Saves contents of current into json file
     private void saveAccount() {
         try {
             jsonWriter.open();

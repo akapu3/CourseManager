@@ -12,6 +12,8 @@ import javax.swing.*;
 
 public class Image {
 
+    //Effect: Displays image
+
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public Image() throws Exception {
         BufferedImage img = ImageIO.read(new File(

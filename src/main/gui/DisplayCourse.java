@@ -14,6 +14,8 @@ public class DisplayCourse implements ActionListener {
     JPanel panel;
     JButton back;
 
+    //Requires: account object
+    //Effect: displays all courses in current
 
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public DisplayCourse(Account current) {

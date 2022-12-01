@@ -23,6 +23,9 @@ public class AddCourse implements ActionListener  {
     Account current;
 
 
+    //Requires: Account object
+    //Effect: Display the add course window
+
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public AddCourse(Account current) {
         this.current = current;
@@ -64,6 +67,10 @@ public class AddCourse implements ActionListener  {
 
         frame.setVisible(true);
     }
+
+    //Requires: Action Event object
+    //Modifies: current
+    //Effect: adds course to current and displays main gui page
 
     @Override
     public void actionPerformed(ActionEvent e) {
