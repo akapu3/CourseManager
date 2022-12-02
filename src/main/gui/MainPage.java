@@ -2,6 +2,8 @@ package gui;
 
 import model.Account;
 import model.Course;
+import model.Event;
+import model.EventLog;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -21,6 +23,7 @@ public class MainPage {
     JButton addCourse;
     JButton removeCourse;
     JButton save;
+    JButton eventLog;
 
     Account current;
 
@@ -32,7 +35,7 @@ public class MainPage {
     private void setUpFrame() {
         frame = new JFrame();
         panel = new JPanel();
-        frame.setSize(350,200);
+        frame.setSize(350,250);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(panel);
         panel.setLayout(null);
@@ -86,9 +89,24 @@ public class MainPage {
         save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+               // EventLog.getInstance().logEvent(new Event("Information Saved"));
                 saveAccount();
             }
         });
+
+        eventLog = new JButton("Exit");
+        eventLog.setBounds(10,160,200,25);
+        panel.add(eventLog);
+        eventLog.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                for (Event x : EventLog.getInstance()) {
+                    System.out.println(x.toString());
+                }
+                System.exit(0);
+            }
+        });
+
 
         frame.setVisible(true);
     }

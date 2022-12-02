@@ -9,7 +9,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.security.spec.ECField;
 
+import model.Event;
+import model.EventLog;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -92,6 +95,7 @@ public class LoginPage extends Canvas implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
+                //EventLog.getInstance().logEvent(new Event("New Account Created"));
                 current = new Account(textFieldName.getText(),textFieldUsername.getText(),textFieldPassword.getText());
                 new MainPage(current);
             }
@@ -111,6 +115,7 @@ public class LoginPage extends Canvas implements ActionListener {
         loadAccount();
         Account temp = new Account(name, username,password);
         if (current.equals(temp)) {
+            //EventLog.getInstance().logEvent(new Event("Logged in"));
             new MainPage(this.current);
         } else {
             try {

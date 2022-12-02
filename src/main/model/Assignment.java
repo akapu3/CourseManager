@@ -4,7 +4,7 @@ import org.json.JSONArray;
 
 import org.json.JSONObject;
 
-public class Assignment {
+public class Assignment extends Observable {
     private String course;
     private int dueDate;
     private String name;
@@ -54,4 +54,10 @@ public class Assignment {
         return false;
     }
 
+
+    //COME BACK TO THIS
+    @Override
+    public void notifyObservers() {
+
+    }
 }

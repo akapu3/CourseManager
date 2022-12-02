@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Account {
+public class Account extends Observable {
 
     private String accountID;
     private String name;
@@ -27,6 +27,7 @@ public class Account {
     //Modifies: this
     //Effect: Adds a course to the courses array and returns true if it is able to do it successfully
     public boolean addCourse(Course course) {
+        EventLog.getInstance().logEvent(new Event("new Course Added"));
         courses.add(course);
         return true;
     }
@@ -35,8 +36,7 @@ public class Account {
     //Modfies: this
     //Effect: removes the given course from the courses arraylist
     public boolean dropCourse(Course course) {
-
-        System.out.println(course);
+        EventLog.getInstance().logEvent(new Event("Course Dropped"));
         return (courses.remove(course));
     }
 
@@ -90,4 +90,12 @@ public class Account {
         return json;
     }
 
+
+    //COME BACK TO THIS
+    @Override
+    public void notifyObservers() {
+        for (Observer x : super.observers) {
+            x.update();
+        }
+    }
 }

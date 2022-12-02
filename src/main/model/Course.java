@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Course {
+public class Course extends Observable {
     String name;
     String lectureType;
     ArrayList<Assignment> assignments;
@@ -103,4 +103,11 @@ public class Course {
         return false;
     }
 
+
+
+    //COME BACK TO THIS
+    @Override
+    public void notifyObservers() {
+
+    }
 }

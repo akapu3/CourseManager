@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import model.Account;
 import model.Course;
+import model.Event;
+import model.EventLog;
 
 
 public class DisplayCourse implements ActionListener {
@@ -44,6 +46,7 @@ public class DisplayCourse implements ActionListener {
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                EventLog.getInstance().logEvent(new Event("Course List Displayed"));
                 frame.setVisible(false);
                 new MainPage(current);
             }
@@ -52,7 +55,6 @@ public class DisplayCourse implements ActionListener {
         frame.setVisible(true);
 
     }
-
 
     @Override
     public void actionPerformed(ActionEvent e) {

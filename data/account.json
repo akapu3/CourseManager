@@ -1,5 +1,10 @@
 {
-    "courses: ": [],
+    "courses: ": [{
+        "assignments: ": [],
+        "lectureType: ": "I",
+        "professorName: ": "L",
+        "name: ": "B"
+    }],
     "accountID: ": "y",
     "password: ": "z",
     "name: ": "x"

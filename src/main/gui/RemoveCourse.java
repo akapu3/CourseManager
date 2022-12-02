@@ -2,6 +2,8 @@ package gui;
 
 import model.Account;
 import model.Course;
+import model.Event;
+import model.EventLog;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
