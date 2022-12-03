@@ -46,6 +46,8 @@ public class Assignment {
         return json;
     }
 
+    //Requires: assignment object
+    //Effect: returns true if the enter assignment object is equal to this
     @Override
     public boolean equals(Object assignment) {
         Assignment a1 = (Assignment) assignment;

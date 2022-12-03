@@ -38,12 +38,14 @@ course you have
 7. On remove screen, you will now add the detail of the course you want to remove and then click submit
 8. You will be taken back to the main page. Click on the Display courses to ensure that the course is indeed removed
 9. Lastly, we will now save our courses.
-10. We will now close the app and restart it. Now will enter some random details in the text boxes and click login.
-11. This will prompt us with a new page with an image and try again button, which when clicked will lead us to the login 
+10. We will now close the app and restart it. To close the app, use the exit button on the main page
+11. Once it's restarted, enter some random details in the text boxes and click login.
+12. This will prompt us with a new page with an image and try again button, which when clicked will lead us to the login 
 page again.
-12. We will now correctly enter all the details and click login. This will take us to the main page where we can check
+13. We will now correctly enter all the details and click login. This will take us to the main page where we can check
 all the courses are saved using the display courses button.
-13. Exit using the exit button on the main page
+14. Exit using the exit button on the main page
+
 
 
 ## P4 Task 2
@@ -63,4 +65,8 @@ Course Dropped
 ### Reflection
 If I had more time:
 - I would create an interface for UI class that contains the fields that were repeated across all the classes
-- 
+
+
+Side note:
+Please ignore P4_UML.pdf file in data . It doesn't represent my UML diagram, and I'm not able to delete it. 
+That is found in the root, right under the readme file.

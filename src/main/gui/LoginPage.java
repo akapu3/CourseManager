@@ -97,7 +97,6 @@ public class LoginPage extends Canvas implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                //EventLog.getInstance().logEvent(new Event("New Account Created"));
                 current = new Account(textFieldName.getText(),textFieldUsername.getText(),textFieldPassword.getText());
                 new MainPage(current);
             }
@@ -117,7 +116,6 @@ public class LoginPage extends Canvas implements ActionListener {
         loadAccount();
         Account temp = new Account(name, username,password);
         if (current.equals(temp)) {
-            //EventLog.getInstance().logEvent(new Event("Logged in"));
             new MainPage(this.current);
         } else {
             try {
@@ -135,7 +133,6 @@ public class LoginPage extends Canvas implements ActionListener {
     private void loadAccount() {
         try {
             current = jsonReader.read();
-            System.out.println("Loaded");
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }

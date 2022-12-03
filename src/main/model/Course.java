@@ -53,7 +53,7 @@ public class Course {
     }
 
 
-
+    //Effect: returns a Json object with the course's details
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("name: ", this.name);
@@ -64,6 +64,7 @@ public class Course {
         return json;
     }
 
+    //Effect: returns a Json array with the assignment arrayList's details
     public JSONArray assignmentsToJson() {
         JSONArray json = new JSONArray();
         for (Assignment x : this.assignments) {
@@ -72,6 +73,8 @@ public class Course {
         return json;
     }
 
+    //Requires: Course object
+    //Effect: returns true if tje given Course object is equal to this
     @Override //Didn't check the class of input because there is no way to add anything other than a course object
     public boolean equals(Object course) {
         Course c1 = (Course)course;
