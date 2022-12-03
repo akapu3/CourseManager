@@ -24,27 +24,27 @@ import model.Account;
 public class LoginPage extends Canvas implements ActionListener {
 
 
-    Account current;
+    private Account current;
     private static final String JSON_STORE = "./data/account.json";
     private JsonWriter jsonWriter = new JsonWriter(JSON_STORE);
     private JsonReader jsonReader = new JsonReader(JSON_STORE);
 
 
-    JFrame frame;
-    JPanel panel;
-    JLabel labelUsername;
-    JLabel labelPassword;
-    JLabel labelName;
-    JTextField textFieldUsername;
-    JPasswordField textFieldPassword;
-    JTextField textFieldName;
+    private JFrame frame;
+    private JPanel panel;
+    private JLabel labelUsername;
+    private JLabel labelPassword;
+    private JLabel labelName;
+    private JTextField textFieldUsername;
+    private JPasswordField textFieldPassword;
+    private JTextField textFieldName;
 
-    JButton button;
-    JButton createAccount;
+    private JButton button;
+    private JButton createAccount;
 
-    String username;
-    String password;
-    String name;
+    private String username;
+    private String password;
+    private String name;
 
     //Effect: Displays login page
     @SuppressWarnings("checkstyle:MethodLength")

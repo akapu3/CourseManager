@@ -40,3 +40,4 @@ course you have
 page again.
 12. We will now correctly enter all the details and click login. This will take us to the main page where we can check
 all the courses are saved using the display courses button.
+13. Exit using the exit button on the main page
