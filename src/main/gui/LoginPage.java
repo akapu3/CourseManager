@@ -18,7 +18,9 @@ import persistence.JsonWriter;
 
 import model.Account;
 
-
+/*
+represents the login page window
+ */
 
 @SuppressWarnings({"checkstyle:TypeName", "checkstyle:SuppressWarnings"})
 public class LoginPage extends Canvas implements ActionListener {

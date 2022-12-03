@@ -10,6 +10,10 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+/*
+represents the image and try again window
+ */
+
 public class Image {
 
     //Effect: Displays image

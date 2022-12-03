@@ -5,6 +5,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+/*
+    Represent an Account in Course manager
+ */
+
 public class Account {
 
     private String accountID;

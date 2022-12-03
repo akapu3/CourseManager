@@ -4,6 +4,9 @@ import org.json.JSONArray;
 
 import org.json.JSONObject;
 
+/*
+Represents an Assignment in Course manager
+ */
 public class Assignment {
     private String course;
     private int dueDate;

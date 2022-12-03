@@ -9,6 +9,11 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/*
+Represents the remove course window
+ */
+
+
 public class RemoveCourse implements ActionListener {
     JFrame frame;
     JPanel panel;

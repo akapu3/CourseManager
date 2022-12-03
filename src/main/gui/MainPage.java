@@ -12,6 +12,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 
+/*
+Represents the main page window
+ */
 
 public class MainPage {
 

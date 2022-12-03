@@ -9,6 +9,10 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/*
+Represents the add course window
+ */
+
 public class AddCourse implements ActionListener  {
 
     JFrame frame;

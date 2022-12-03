@@ -13,6 +13,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 
+/*
+    Allows the caller method/class to read from a JSon file
+ */
+
 public class JsonReader {
     private String source;
 

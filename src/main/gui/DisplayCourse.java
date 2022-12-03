@@ -9,7 +9,9 @@ import model.Course;
 import model.Event;
 import model.EventLog;
 
-
+/*
+Represents the Display Course window
+ */
 public class DisplayCourse implements ActionListener {
     ArrayList<JLabel> courses;
     JFrame frame;

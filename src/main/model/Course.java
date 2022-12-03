@@ -5,6 +5,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+/*
+Represents a course in course manager
+ */
+
 public class Course {
     String name;
     String lectureType;
