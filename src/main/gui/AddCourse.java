@@ -80,7 +80,6 @@ public class AddCourse implements ActionListener  {
                 professorNameTextField.getText());
         current.addCourse(course);
         frame.setVisible(false);
-        System.out.println(current.getCourses().size());
         new MainPage(current);
     }
 

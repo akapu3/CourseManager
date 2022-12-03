@@ -1,11 +1,25 @@
 {
-    "courses: ": [{
-        "assignments: ": [],
-        "lectureType: ": "I",
-        "professorName: ": "L",
-        "name: ": "B"
-    }],
-    "accountID: ": "y",
-    "password: ": "z",
-    "name: ": "x"
+    "courses: ": [
+        {
+            "assignments: ": [],
+            "lectureType: ": "Online",
+            "professorName: ": "Bob",
+            "name: ": "CPSC210"
+        },
+        {
+            "assignments: ": [],
+            "lectureType: ": "In-person",
+            "professorName: ": "Jack",
+            "name: ": "CPSC121"
+        },
+        {
+            "assignments: ": [],
+            "lectureType: ": "Hybrid",
+            "professorName: ": "Sam",
+            "name: ": "CPSC213"
+        }
+    ],
+    "accountID: ": "B",
+    "password: ": "C",
+    "name: ": "A"
 }

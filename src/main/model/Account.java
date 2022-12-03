@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Account extends Observable {
+public class Account {
 
     private String accountID;
     private String name;
@@ -30,6 +30,12 @@ public class Account extends Observable {
         EventLog.getInstance().logEvent(new Event("new Course Added"));
         courses.add(course);
         return true;
+    }
+
+    //Effect:returns list of courses when the UI needs to display list of courses
+    public ArrayList<Course> displayListofCourses() {
+        EventLog.getInstance().logEvent(new Event("Course List Displayed"));
+        return getCourses();
     }
 
     //Requires: Course
@@ -90,12 +96,4 @@ public class Account extends Observable {
         return json;
     }
 
-
-    //COME BACK TO THIS
-    @Override
-    public void notifyObservers() {
-        for (Observer x : super.observers) {
-            x.update();
-        }
-    }
 }

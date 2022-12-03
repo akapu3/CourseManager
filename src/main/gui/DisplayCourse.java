@@ -24,12 +24,12 @@ public class DisplayCourse implements ActionListener {
         courses = new ArrayList<>();
         frame = new JFrame();
         panel = new JPanel();
-        frame.setSize(350,200);
+        frame.setSize(350,500);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(panel);
         panel.setLayout(null);
 
-        ArrayList<Course> course = current.getCourses();
+        ArrayList<Course> course = current.displayListofCourses();
 
         int y = 40;
         for (int i = 0; i < course.size(); i++) {
@@ -41,12 +41,11 @@ public class DisplayCourse implements ActionListener {
         }
 
         back = new JButton("Back");
-        back.setBounds(10,110,80,25);
+        back.setBounds(10,410,80,25);
         panel.add(back);
         back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                EventLog.getInstance().logEvent(new Event("Course List Displayed"));
                 frame.setVisible(false);
                 new MainPage(current);
             }

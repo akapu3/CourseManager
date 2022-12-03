@@ -117,7 +117,7 @@ public class MainPage {
             jsonWriter.open();
             jsonWriter.write(current);
             jsonWriter.close();
-            System.out.println("Saved " + current.getName() + " to " + JSON_STORE);
+            //System.out.println("Saved " + current.getName() + " to " + JSON_STORE);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }

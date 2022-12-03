@@ -19,10 +19,13 @@ course manager, I hope to relive some of the pressure and anxiety experienced by
 ## User Stories
 As a user:
 - Log into app
-- Save courses and assignments
+- Add course to account
+- Display the courses in the Account
+- Remove course from account
+- Save the added courses
 
 
-P3 GUI instructions:
+GUI instructions:
 1. enter your details into the given spaces, as you don't have an account already, you will click in the create account
 button. <- remember these details as they important later on
 2. You will be presented with the main screen of the program, you will first add a course. To do so, you will click on 
@@ -41,3 +44,23 @@ page again.
 12. We will now correctly enter all the details and click login. This will take us to the main page where we can check
 all the courses are saved using the display courses button.
 13. Exit using the exit button on the main page
+
+
+## P4 Task 2
+Fri Dec 02 20:46:01 PST 2022
+new Course Added
+Fri Dec 02 20:46:01 PST 2022
+new Course Added
+Fri Dec 02 20:46:01 PST 2022
+new Course Added
+Fri Dec 02 20:46:04 PST 2022
+Course List Displayed
+Fri Dec 02 20:46:17 PST 2022
+new Course Added
+Fri Dec 02 20:46:23 PST 2022
+Course Dropped
+
+### Reflection
+If I had more time:
+- I would create an interface for UI class that contains the fields that were repeated across all the classes
+- 

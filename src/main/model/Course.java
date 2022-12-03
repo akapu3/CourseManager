@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Course extends Observable {
+public class Course {
     String name;
     String lectureType;
     ArrayList<Assignment> assignments;
@@ -15,7 +15,7 @@ public class Course extends Observable {
         this.name = name;
         this.lectureType = lectureType;
         this.professorName = professorName;
-        assignments = new ArrayList<Assignment>();
+        assignments = new ArrayList<>();
     }
 
     public String getName() {
@@ -49,30 +49,6 @@ public class Course extends Observable {
     }
 
 
-//    public ArrayList<Assignment>getPriorityAssignments(int weeks) {
-//        int timeInMilliseconds = (((((weeks * 7) * 24) * 60) * 60) * 1000);
-//        //save the current date everytime program is started?
-//        //change assignmnet so that the due date is entered in weeks?
-//
-//
-//        for(int i = 0; i < assignments.size(); i++){
-//
-//        }
-//        // return list of Assignments due within the next__
-//        return null;
-//    }
-
-
-//    public boolean equalsCourses(Course c1) {
-//        if (c1.getName().equals(getName())) {
-//            if (c1.getProfessorName().equals(getProfessorName())) {
-//                if (c1.getLectureType().equals(getLectureType())) {
-//                    return true;
-//                }
-//            }
-//        }
-//        return false;
-//    }
 
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -105,9 +81,5 @@ public class Course extends Observable {
 
 
 
-    //COME BACK TO THIS
-    @Override
-    public void notifyObservers() {
 
-    }
 }
